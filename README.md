@@ -122,6 +122,23 @@ CREATE TABLE IF NOT EXISTS stats (date TEXT PRIMARY KEY, count INTEGER DEFAULT 0
 
 ---      
 
+---
+
+## 💾 兼容模式：绑定 KV (可选)
+
+**如果您不想配置 D1，系统支持自动降级使用 KV 存储配置和白名单。**
+
+1.  在 Cloudflare 左侧菜单选择 **Workers & Pages** -> **KV**。
+2.  点击 **创建命名空间 (Create a Namespace)**，命名为 `BLACKLIST`（或任意名称）。
+3.  回到你的 Worker/Pages/Snippet 项目设置页：
+    *   **Workers/Pages**：`设置` -> `变量` -> `KV 命名空间绑定`。
+4.  点击 **添加绑定**：
+    *   **变量名称 (Variable name)**: `LH` (⚠️必须填这个，不能改)
+    *   **KV 命名空间**: 选择你刚才创建的空间。
+5.  **保存并重新部署**。
+
+---
+
 ## 📂 代码版本说明
 
 本项目包含两套代码，请根据您的部署方式选择：
@@ -245,22 +262,7 @@ CREATE TABLE IF NOT EXISTS stats (date TEXT PRIMARY KEY, count INTEGER DEFAULT 0
 
 
 
----
 
-## 💾 兼容模式：绑定 KV (可选)
-
-**如果您不想配置 D1，系统支持自动降级使用 KV 存储配置和白名单。**
-
-1.  在 Cloudflare 左侧菜单选择 **Workers & Pages** -> **KV**。
-2.  点击 **创建命名空间 (Create a Namespace)**，命名为 `BLACKLIST`（或任意名称）。
-3.  回到你的 Worker/Pages/Snippet 项目设置页：
-    *   **Workers/Pages**：`设置` -> `变量` -> `KV 命名空间绑定`。
-4.  点击 **添加绑定**：
-    *   **变量名称 (Variable name)**: `LH` (⚠️必须填这个，不能改)
-    *   **KV 命名空间**: 选择你刚才创建的空间。
-5.  **保存并重新部署**。
-
----
 
 ## 🖥️ 后台管理使用说明
 
