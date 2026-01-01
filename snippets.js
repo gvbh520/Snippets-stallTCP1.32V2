@@ -30,7 +30,7 @@ const MAX_PENDING=2*1024*1024,KEEPALIVE=15e3,STALL_TO=8e3,MAX_STALL=12,MAX_RECON
 export default {
   async fetch(r, e, c) {
     try {
-      if (e.UUID) UUID = e.UUID.trim();
+      if (e && e.UUID) UUID = e.UUID.trim();
       const u = new URL(r.url), UA = (r.headers.get("User-Agent")||"").toLowerCase();
       
       // WebSocket -> StallTCP
